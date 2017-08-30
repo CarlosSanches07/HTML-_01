@@ -14,6 +14,10 @@ body{
 	z-index: 100;
 }
 
+body a{
+	cursor: pointer;
+}
+
 input#toggle{
 	display: none;
 }

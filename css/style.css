@@ -18,12 +18,6 @@ input#toggle{
 	display: none;
 }
 
-input#toggle + label{
-	background-image: url(threelines.png);
-}
-
-
-
 #navmenu li{
 	display: inline-block;
 	padding: 10px;
@@ -105,7 +99,7 @@ input#toggle + label{
 
 @media screen and (max-width:900px){
 	#logo {
-		margin-left: 40%;
+		margin-left: 30%;
 	}
 
 	#logo a{
@@ -117,8 +111,9 @@ input#toggle + label{
 	}
 
 	#navbar{
-		opacity: 0;
+		display: none;
 		top:53;
+		left: 26;
 		justify-content: flex-start;
 		margin-left: 0;
 	}
@@ -134,19 +129,38 @@ input#toggle + label{
 		display: none;
 	}
 
-	input#toggle{
-		display: block;
-		float: left;
-		margin: 15px 5px 0px 8px;
-	}
-
-	input#toggle + label{
+	#toggle:checked ~ div#navbar{
 		display: block;
 	}
 
-	input#toggle:checked ~ #navbar{
-		opacity: 1;
+	.button { 
+  		float: left;
+  		display: block;
+  		width: 30px;
+ 		height: 28px;
+ 		margin-left: 16px;
+ 		margin-top: 9px;
+ 		border: 1px solid #ccc;
+ 		border-radius: 3px;
+ 		padding-top: 7px;
+ 		padding-left: 5px;
+ 		cursor: pointer;
 	}
+
+	#threelines{
+		background: linear-gradient(
+    		to bottom, 
+    			#555, #555 20%, 
+    			#eee 20%, #eee 40%, 
+    			#555 40%, #555 60%, 
+    			#eee 60%, #eee 80%, 
+    			#555 80%, #555 100%
+  		);
+  		width: 25px;
+  		height: 20px;
+
+	}
+
 	header{
 		box-shadow: 3px;
 	}
@@ -183,4 +197,4 @@ input#toggle + label{
 		font-size: 16px;
 	}
 }
-
+  	

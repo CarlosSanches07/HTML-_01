@@ -1,6 +1,6 @@
 body{
 	font: 400 14px/1.6 "Open Sans",sans-serif;
-	background-image: url(/img/bg.jpg);
+	background-image: url(../img/bg.jpg);
 	background-repeat: repeat;
 }
  header {
@@ -22,6 +22,9 @@ input#toggle{
 	display: none;
 }
 
+a {
+  text-decoration: none;
+}
 #navmenu li{
 	display: inline-block;
 	padding: 10px;
@@ -42,7 +45,7 @@ input#toggle{
 }
 
 #navmenu a:hover{
-	color: #000000;
+	color: #666;
 }
 
 #logo{
@@ -130,6 +133,7 @@ input#toggle{
 	}
 
 	#hide {
+		font-style: strong;
 		display: none;
 	}
 
@@ -137,7 +141,7 @@ input#toggle{
 		display: block;
 	}
 
-	.button { 
+	.button {
   		float: left;
   		display: block;
   		width: 30px;
@@ -153,11 +157,11 @@ input#toggle{
 
 	#threelines{
 		background: linear-gradient(
-    		to bottom, 
-    			#555, #555 20%, 
-    			#eee 20%, #eee 40%, 
-    			#555 40%, #555 60%, 
-    			#eee 60%, #eee 80%, 
+    		to bottom,
+    			#555, #555 20%,
+    			#eee 20%, #eee 40%,
+    			#555 40%, #555 60%,
+    			#eee 60%, #eee 80%,
     			#555 80%, #555 100%
   		);
   		width: 25px;
@@ -187,18 +191,147 @@ input#toggle{
 	#navmenu li{
 		border-bottom: 1px solid #ddd;
 	}
-	
+
 	#navmenu ul{
 		position: relative;
 		border: none;
 		background-color: #ccc;
 		max-height: 180px;
 		overflow-y: auto;
-		overflow-x: hidden; 
+		overflow-x: hidden;
 	}
 
 	#navmenu ul a{
 		font-size: 16px;
 	}
 }
-  	
+
+
+/*###############Section main-content ###############*/
+#main-content {
+    width: 80%;
+    margin: 120 170 30 70;
+    max-width: 900%;
+    /*padding-right: 9%;*/
+    display: flex;
+}
+
+#main-content .left-content {
+    display: block;
+    font: 4.0em "Helvetica Neue","Open Sans",sans-serif;
+    margin-bottom: .25em;
+    font-weight: 100;
+    width:50%;
+    margin-right: 50px;
+}
+
+#main-content .left-content .express-version {
+  font-size: 0.2em;
+  margin-left: 0.5em;
+  color: #259dff!important;
+  font-weight: 400;
+}
+#main-content .left-content .express-text {
+  color: #353535;
+}
+
+.description {
+  position: relative;
+  top: 7px;
+  font: 100 .9em "Helvetica Neue","Open Sans",sans-serif;
+  color: #aeaeae;
+  line-height: 1.0;
+}
+
+#main-content span a {
+  color: #259dff;
+}
+
+#main-content .left-content blockquote {
+  margin: 0;
+  font-size: 14px;
+      font-family: Consolas,Monaco,"Andale Mono",monospace;
+  background-color: #fff;
+  padding: 5px 10px;
+  border-radius: 0.4em;
+  border: 1px solid #eee;
+  margin-top: 65px;
+  max-width: 70%;
+}
+
+#frameworks a{
+  color: #25A9FE;
+}
+
+/*######## Vídeo #######*/
+#main-content .video {
+  width: 50%;
+  padding: 25px 0px 0px 0px;
+}
+
+#main-content .video iframe {
+  min-width: 100%;
+  min-height: 273px;
+}
+
+
+/*########## Features ######## */
+#features{
+  /*width: 1215px;*/
+margin: 40 170 30 70;
+max-width: 900%;
+/* padding-right: 5%; */
+/*display: flex;*/
+}
+.boxes {
+  width: 100%;
+}
+.boxes div {
+  width: 20%;
+  margin-right: 50px;
+  float: left;
+}
+.boxes div h2 {
+  font-weight: 400;
+  font-size: 30px;
+  color: #353535;
+  margin: 10 0;
+}
+.boxes div p {
+  font-size: 15px;
+}
+
+
+
+@media screen and (max-width:1000px) {
+  .description {
+    width: 100%;
+    font-size: 34px;
+  }
+  #main-content {
+    width: 100%;
+    margin: 10 0% 0 0%;
+    padding-right:0;
+    display: block;
+  }
+  .boxes div {
+    width: 100%;
+    margin-right: 50px;
+  }
+  #main-content .video {
+    width: 100%;
+  }
+  #main-content .left-content{
+    width: 100%;
+  }
+
+  #features {
+    margin: 30 auto;
+    max-width: 900%;
+    padding: 0 0%;
+    display: flex;
+  }
+  #main-content .left-content blockquote, .express-text, .express-version {
+    display: none;
+  }
+}

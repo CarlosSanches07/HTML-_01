@@ -14,17 +14,20 @@ body{
 	z-index: 100;
 }
 
+a {
+  text-decoration: none;
+}
+
 body a{
 	cursor: pointer;
 }
+
+/*HEADER*/
 
 input#toggle{
 	display: none;
 }
 
-a {
-  text-decoration: none;
-}
 #navmenu li{
 	font-size: 14px/1.6;
 	display: inline-block;
@@ -298,10 +301,13 @@ max-width: 900%;
   font-weight: 400;
   font-size: 30px;
   color: #353535;
-  margin: 0;
+  margin: 5px 20px;
+
 }
 .boxes div p {
   font-size: 15px;
+  margin: 5 20;
+  color: #555;
 }
 
 

@@ -46,7 +46,7 @@ a {
 }
 
 #navmenu a:hover{
-	color: #000000;
+	color: #666;
 }
 
 #logo{
@@ -212,16 +212,16 @@ a {
 
 /*###############Section main-content ###############*/
 #main-content {
-    width: 70%;
+    width: 80%;
     margin: 120 170 30 70;
     max-width: 900%;
-    padding-right: 9%;
+    /*padding-right: 9%;*/
     display: flex;
 }
 
 #main-content .left-content {
     display: block;
-    font: 4.5em "Helvetica Neue","Open Sans",sans-serif;
+    font: 4.0em "Helvetica Neue","Open Sans",sans-serif;
     margin-bottom: .25em;
     font-weight: 100;
     width:50%;
@@ -268,7 +268,7 @@ a {
 
 /*######## Vídeo #######*/
 #main-content .video {
-  width: 45%;
+  width: 50%;
   padding: 25px 0px 0px 0px;
 }
 
@@ -313,7 +313,7 @@ max-width: 900%;
   }
   #main-content {
     width: 100%;
-    margin: 10 3% 0 3%;
+    margin: 10 0% 0 0%;
     padding-right:0;
     display: block;
   }
@@ -331,7 +331,7 @@ max-width: 900%;
   #features {
     margin: 30 auto;
     max-width: 900%;
-    padding: 0 3%;
+    padding: 0 0%;
     display: flex;
   }
   #main-content .left-content blockquote, .express-text, .express-version {

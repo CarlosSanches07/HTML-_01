@@ -26,6 +26,7 @@ a {
   text-decoration: none;
 }
 #navmenu li{
+	font-size: 14px/1.6;
 	display: inline-block;
 	padding: 10px;
 	padding-top: 0px;
@@ -33,7 +34,7 @@ a {
 }
 
 #navmenu {
-	padding: 0;
+	padding: center;
 	margin: 0;
 	right: 0;
 	margin-right: 15px;
@@ -106,7 +107,9 @@ a {
 
 @media screen and (max-width:900px){
 	#logo {
-		margin-left: 30%;
+		text-align: center;
+		position: relative;
+		z-index: -1;
 	}
 
 	#logo a{
@@ -118,9 +121,10 @@ a {
 	}
 
 	#navbar{
+		padding: 0;
 		display: none;
-		top:53;
-		left: 26;
+		top:0;
+		left: 0;
 		justify-content: flex-start;
 		margin-left: 0;
 	}

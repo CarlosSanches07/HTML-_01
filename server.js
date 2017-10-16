@@ -26,6 +26,31 @@ client.query('select now()', (err, res) => {
 app.get('/', (req, res)=>{
 	client.query('select * from content',(err, data)=>{
 		if(err)throw err;
-		res.render('index.pug', {'content':data.rows});
+
+		var result = data.rows;
+
+		res.render('index.pug', {'content':result.sort((a,b)=>{
+			if(a.id < b.id)
+				return -1;
+			if(a.id > b.id)
+				return 1;
+			return 0;
+		})});
 	})
+})
+
+app.get('/admin',(req,res)=>{
+	res.render('admin.pug');
+})
+
+app.post('/',(req,res)=>{
+	var query = 'update content set title = $1, description = $2 where id = $3';
+	var values = [req.body.title, req.body.description, req.body.id];
+	client.query(query, values,(err,data)=>{
+		if(err)
+			console.log(err);
+		else
+			console.log('updated' + data.rows);
+	})
+	res.redirect('/');
 })

@@ -1,10 +1,21 @@
-body{
+/*body{
 	max-width: 1336px;
 	font: 400 14px/1.6 "Open Sans",sans-serif;
 	background-image: url(../img/bg.jpg);
 	background-repeat: repeat;
 }
- header {
+
+a {
+  text-decoration: none;
+}
+
+body a{
+	cursor: pointer;
+}*/
+
+/*HEADER*/
+
+/*header {
 	background-color: #eee;
 	position: fixed;
 	top: 0;
@@ -14,16 +25,6 @@ body{
 	border-bottom: 1px solid #ddd;
 	z-index: 100;
 }
-
-a {
-  text-decoration: none;
-}
-
-body a{
-	cursor: pointer;
-}
-
-/*HEADER*/
 
 input#toggle{
 	display: none;
@@ -212,14 +213,14 @@ input#toggle{
 		font-size: 16px;
 	}
 }
-
+*/
 
 /*###############Section main-content ###############*/
-#main-content {
+/*#main-content {
     width: 80%;
     margin: 120 170 30 70;
     max-width: 900%;
-    /*padding-right: 9%;*/
+
     display: flex;
 }
 
@@ -257,7 +258,7 @@ input#toggle{
 #main-content .left-content blockquote {
   margin: 0;
   font-size: 14px;
-      font-family: Consolas,Monaco,"Andale Mono",monospace;
+  font-family: Consolas,Monaco,"Andale Mono",monospace;
   background-color: #fff;
   padding: 5px 10px;
   border-radius: 0.4em;
@@ -268,10 +269,10 @@ input#toggle{
 
 #frameworks a{
   color: #25A9FE;
-}
+}*/
 
 /*######## Vídeo #######*/
-#main-content .video {
+/*#main-content .video {
   width: 50%;
   padding: 25px 0px 0px 0px;
 }
@@ -279,16 +280,13 @@ input#toggle{
 #main-content .video iframe {
   min-width: 100%;
   min-height: 273px;
-}
+}*/
 
 
 /*########## Features ######## */
-#features{
-  /*width: 1215px;*/
+/*#features{
 margin: 40 170 30 70;
 max-width: 900%;
-/* padding-right: 5%; */
-/*display: flex;*/
 }
 .boxes {
   width: 100%;
@@ -344,4 +342,4 @@ max-width: 900%;
   #main-content .left-content blockquote, .express-text, .express-version {
     display: none;
   }
-}
+}*/

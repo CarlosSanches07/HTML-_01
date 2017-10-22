@@ -1,27 +1,32 @@
 doctype.html
-
+style
+	include css/header.css
+	include css/body.css
 html
+	include head.html
 	body
-		form#form(
-			action="/"
-			method="post"
-		)
-			span ID
-			input#id(
-				type="text"
-				name="id"
+		include header.html
+		.content
+			form#form(
+				action="/admin"
+				method="post"
 			)
-			span Title
-			input#title(
-				type="text"
-				name="title"
-			)
-			span Description
-			input#description(
-				type="text"
-				name="description"
-			)
-			button#update(
-				type="submit"
-			) update
+				span ID
+				input#id(
+					type="text"
+					name="id"
+				)
+				span Title
+				input#title(
+					type="text"
+					name="title"
+				)
+				span Description
+				input#description(
+					type="text"
+					name="description"
+				)
+				button#update(
+					type="submit"
+				) update
 

@@ -1,0 +1,29 @@
+doctype.html
+
+html
+	include head.html
+	style
+		include css/header.css
+		include css/body.css
+	body
+		include header.html
+		.content
+			form#input(
+				action="/login"
+				method="post"
+			)
+				fieldset
+					legend Sign in
+					span Login
+					input#login(
+						type="text"
+						name="login"
+					)
+					span Password
+					input#password(
+						type="password"
+						name="password"
+					)
+					button#login(
+						type="submit"
+					) Login

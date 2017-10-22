@@ -1,0 +1,35 @@
+{
+  "name": "html-1",
+  "version": "1.0.0",
+  "description": "Este é um trabalho da matéria AN34A - Desenvolvimento web, da Universidade Tecnológica Federal do Paraná.\r O trabalho se baseia em reproduzir o design de uma página na web, o design á ser reproduzido será da página http://expressjs.com/pt-br/.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js --exec babel-node --presets es2015"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CarlosSanches07/html-1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CarlosSanches07/html-1/issues"
+  },
+  "homepage": "https://github.com/CarlosSanches07/html-1#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "pg": "^7.3.0",
+    "pug": "^2.0.0-rc.4"
+  },
+  "devDependencies": {
+    "b": "^2.0.1",
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "nodemon": "^1.12.1",
+    "rimraf": "^2.6.2",
+    "webpack": "^3.8.1"
+  }
+}

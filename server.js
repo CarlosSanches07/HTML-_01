@@ -27,7 +27,7 @@ app.get('/', (req, res)=>{
 		if(err)throw err;
 
 		res.render('index.pug', {'content':data.rows});
-		console.log(req.session.login);
+		//console.log(req.session.login);
 	})
 })
 
@@ -53,6 +53,9 @@ app.post('/admin',(req, res)=>{
 })
 
 app.post('/login',(req,res)=>{
-	controllerHuman.verifyLogin(req,client);
-	res.redirect('/');
+	controllerHuman.verifyLogin(req,res,client);
+})
+
+app.post('/admin-user',(req,res)=>{
+	controllerHuman.verifyEmail(req,res,client);
 })

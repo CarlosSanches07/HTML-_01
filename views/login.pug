@@ -14,7 +14,12 @@ html
 			)
 				fieldset
 					legend Sign in
-					span Login
+					if login === 'erro'
+						span(
+							style="color : red;"
+						) Login
+					else
+						span Login
 					input#login(
 						type="text"
 						name="login"
@@ -26,4 +31,4 @@ html
 					)
 					button#login(
 						type="submit"
-					) Login
+					) login

@@ -30,3 +30,38 @@ html
 					type="submit"
 				) update
 
+			form#form(
+				action="/admin-user"
+				method="post"
+			)
+				fieldset
+					legend Insert user
+					span Name
+					input#name(
+						type="text"
+						name="name"
+					)
+					if erro
+						span(
+							style="color : red;"
+						) e-mail
+					else
+						span e-mail
+					input#email(
+						type="text"
+						name="email"
+					)
+					span Password
+					input#password(
+						type="password"
+						name="password"
+					)
+					span Confirm password
+					input#confirm(
+						type="password"
+						name="confirm"
+					)
+					button#login(
+						type="submit"
+					) Insert
+

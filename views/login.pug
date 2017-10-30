@@ -14,10 +14,14 @@ html
 			)
 				fieldset
 					legend Sign in
-					span Login
+					if login === 'erro'
+						span(
+							style="color : red;"
+						) email or password are invalid!! 
+					span E-mail
 					input#login(
 						type="text"
-						name="login"
+						name="email"
 					)
 					span Password
 					input#password(
@@ -26,4 +30,4 @@ html
 					)
 					button#login(
 						type="submit"
-					) Login
+					) login

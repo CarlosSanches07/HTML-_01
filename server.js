@@ -1,3 +1,4 @@
+
 import database from './database/database.js'
 import controllerContent from './controllers/controller.content'
 import controllerHuman from './controllers/controller.human'
@@ -23,16 +24,57 @@ app.use(bodyParser.urlencoded({extend : true}));
 
 
 app.get('/', (req, res)=>{
-	client.query('select * from content order by id',(err, data)=>{
-		if(err)throw err;
+	if(!req.session.login){
+		client.query('select * from content where content.humanId = 1 order by id',(err, data)=>{
+			if(err) throw err;
+		res.render('index.pug', {'content':data.rows, 'login' : false});
+		})
+	}else{
+		let query = {
+			name : 'select-content',
+			text : 'select content.id, content.title, content.description from content join human on(humanId = human.id) where human.id = $1 order by content.id',
+			values : [req.session.login]
+		}
+		client.query(query)
+		.then((data)=>{
+			res.render('index.pug',{'content': data.rows, 'login' : true});
+		})
+		.catch((err)=>console.log(err))
+	}
+})
 
-		res.render('index.pug', {'content':data.rows});
-		console.log(req.session.login);
-	})
+app.post('/search', (req, res)=>{
+	let query = {
+		name : 'selectByTitle',
+		text : 'select * from content where title = $1 and humanId = $2',
+		values : [req.body.searchTitle, req.session.login]
+	}
+	client.query(query)
+		.then((data)=>{
+			console.log(data);
+			if(data.rows[0] == null){
+				query = {
+					text : 'select * from content where humanId = $1',
+					values : [req.session.login]
+				}
+				client.query(query)
+					.then((data)=>{
+						res.render('index.pug',{'content' : data.rows, 'login' : true, 'erro' : 'erro'})
+					})
+					.catch((err)=>{
+						console.log(err);
+					})
+			}
+			else
+				res.render('index.pug',{'content' : data.rows, 'login' : true});
+		})
+		.catch((err)=>{
+			console.log(err);
+		})
 })
 
 app.get('/admin',(req,res)=>{
-	res.render('admin.pug');
+	res.render('admin.pug', {'user' :  req.session.login});
 })
 
 app.get('/login',(req,res)=>{
@@ -40,7 +82,7 @@ app.get('/login',(req,res)=>{
 })
 
 app.post('/admin',(req, res)=>{
-	controllerContent.updateById(req,client);
+	controllerContent.updateById(req,res,client);
 	/*var query = 'update content set title = $1, description = $2 where id = $3';
 	var values = [req.body.title, req.body.description, req.body.id];
 	client.query(query, values,(err,data)=>{
@@ -53,6 +95,9 @@ app.post('/admin',(req, res)=>{
 })
 
 app.post('/login',(req,res)=>{
-	controllerHuman.verifyLogin(req,client);
-	res.redirect('/');
+	controllerHuman.verifyLogin(req,res,client);
+})
+
+app.post('/admin-user',(req,res)=>{
+	controllerHuman.verifyEmail(req,res,client);
 })

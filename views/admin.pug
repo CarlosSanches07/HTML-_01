@@ -7,26 +7,71 @@ html
 	body
 		include header.html
 		.content
+			h2 Add content
+			if contentErr
+				span(
+					style="color : red;"
+				) All fields needs to be filled
 			form#form(
 				action="/admin"
 				method="post"
 			)
-				span ID
-				input#id(
-					type="text"
-					name="id"
-				)
 				span Title
 				input#title(
 					type="text"
 					name="title"
+					required
 				)
 				span Description
 				input#description(
 					type="text"
 					name="description"
+					required
 				)
 				button#update(
 					type="submit"
-				) update
+				) Save
+
+			if user == 1
+				form#form(
+					action="/admin-user"
+					method="post"
+				)
+					if fielderr
+						span(
+							style="color : red;"
+						) All fields needs to be filled
+					fieldset
+						legend Insert user
+						span Name
+						input#name(
+							type="text"
+							name="name"
+							required
+						)
+						if erro
+							p(
+								style="color : red;"
+							) e-mail already in use
+						span e-mail
+						input#email(
+							type="text"
+							name="email"
+							required
+						)
+						span Adress
+						input#adress(
+							type="text"
+							name="adress"
+							required
+						)
+						span Password
+						input#password(
+							type="password"
+							name="password"
+							required
+						)
+						button#login(
+							type="submit"
+						) Insert
 

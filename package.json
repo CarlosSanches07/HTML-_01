@@ -4,6 +4,7 @@
   "description": "Este é um trabalho da matéria AN34A - Desenvolvimento web, da Universidade Tecnológica Federal do Paraná.\r O trabalho se baseia em reproduzir o design de uma página na web, o design á ser reproduzido será da página http://expressjs.com/pt-br/.",
   "main": "index.js",
   "scripts": {
+    "start" : "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server.js --exec babel-node --presets es2015"
   },

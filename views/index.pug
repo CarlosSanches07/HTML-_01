@@ -26,27 +26,55 @@ body
 					type="submit"
 				) Search
 		.boxes
-			#web
-				if content[0] != null
-					h2=content[0].title
-					p=content[0].description
-				else
-					h2 Adicione algo !!
-					p clique no link admin e adicione algum conteúdo !!
-			#apis
-				h2 APIs
-				p Com uma miríade de métodos utilitários HTTP e middleware a seu dispor, criar uma API robusta é rápido e fácil.
-			#performance
-				h2 Desempenho
-				p O Express fornece uma camada fina de recursos fundamentais para aplicativos da web, sem obscurecer os recursos do Node.js que você conhece e ama. 
-			#frameworks
-				h2 LoopBack
-				p Desenvolva aplicativos orientado a modelos com um framework baseado em Express.Descubra mais em loopback.io.
-	if login
-		a(
-			href="/admin"
-		) admin
-
-	a(
-		href="/login"
-	) login
+			if !content
+				#web
+					h2 Aplicativos da Web
+					p O Express é um framework para aplicativo da web do Node.js
+						| mínimo e flexível que fornece um conjunto
+						| robusto de recursos para aplicativos web e móvel.
+				#apis
+					h2 APIs
+					p Com uma miríade de métodos utilitários 
+						| HTTP e middleware a seu dispor, criar
+						| uma API robusta é rápido e fácil.
+				#performance
+					h2 Desempenho
+					p O Express fornece uma camada fina de recursos
+						| fundamentais para aplicativos da web, sem obscurecer
+						| os recursos do Node.js que você conhece e ama. 
+				#frameworks
+					h2 LoopBack
+					p Desenvolva aplicativos orientado a modelos com
+						| um framework baseado em Express.Descubra 
+						| mais em loopback.io.
+			else
+				each item in content
+					.posts
+						h2= item.title
+						p= item.description	
+	#ctrl-panel
+		if login
+			
+				a.button(
+					href="/admin"
+				)
+					i(
+						class="fa fa-cog"
+						aria-hidden
+					)
+			
+				a.button(
+					href="/logout"
+				)
+					i(
+						class="fa fa-power-off"
+						aria-hidden="true"
+					)
+		else
+			a.button(
+				href="/login"
+			)
+				i(
+					class="fa fa-user"
+					aria-hidden="true"
+				)

@@ -18,17 +18,14 @@ app.listen(3000, ()=>{
 app.set('view engine', 'pug');
 app.use(express.static('public'));
 
-app.use(session({secret : 'thisisasecret', cookie : {maxAge : 60000}}));
+app.use(session({secret : 'thisisasecret', cookie : {maxAge : 600000}}));
 
 app.use(bodyParser.urlencoded({extend : true}));
 
 
 app.get('/', (req, res)=>{
 	if(!req.session.login){
-		client.query('select * from content where content.humanId = 1 order by id',(err, data)=>{
-			if(err) throw err;
-		res.render('index.pug', {'content':data.rows, 'login' : false});
-		})
+		res.render('index.pug');
 	}else{
 		let query = {
 			name : 'select-content',
@@ -51,7 +48,6 @@ app.post('/search', (req, res)=>{
 	}
 	client.query(query)
 		.then((data)=>{
-			console.log(data);
 			if(data.rows[0] == null){
 				query = {
 					text : 'select * from content where humanId = $1',
@@ -100,4 +96,9 @@ app.post('/login',(req,res)=>{
 
 app.post('/admin-user',(req,res)=>{
 	controllerHuman.verifyEmail(req,res,client);
+})
+
+app.get('/logout',(req, res)=>{
+	req.session.cookie.maxAge = 0;
+	res.redirect('/');
 })
